@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">Habit Tracker</string>
+
+    <!-- Strings for activity_habit.xml -->
+    <string name="placeholder_text">Habit table will be displayed here.</string>
+
+    <!-- Strings for activity_editor.xml -->
+    <string name="sunday">Sunday</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+
+    <string name="day_of_week">Day:</string>
+
+    <string name="run">Run</string>
+    <string name="bike">Bike</string>
+    <string name="swim">Swim</string>
+    <string name="weights">Weights</string>
+    <string name="bodyweight">Body Weight</string>
+    <string name="yoga">Yoga</string>
+
+    <string name="exercise_performed">Exercise:</string>
+
+    <string name="time_performed">Time (mins):</string>
+    <string name="time_unit">min</string>
+    <string name="time_hint">Time</string>
+
+    <!-- Menu Activity Strings -->
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="dummy_data">Insert Dummy Data</string>
 </resources>

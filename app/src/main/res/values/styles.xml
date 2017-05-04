@@ -8,4 +8,22 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Style for the activity_editor TextViews -->
+    <style name="editor_text_view_styles">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingLeft">16dp</item>
+    </style>
+
+    <!-- Style for the activity_habit TextViews -->
+    <style name="habit_view_style">
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingTop">16sp</item>
+        <item name="android:paddingLeft">16sp</item>
+    </style>
+
 </resources>
