@@ -21,6 +21,8 @@ public class HabitActivity extends AppCompatActivity {
     // Instantiate a HabitDbHelper to use throughout the activity
     private HabitDbHelper mDbHelper;
 
+    private TextView mHabitView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,8 @@ public class HabitActivity extends AppCompatActivity {
                 startActivity(editorIntent);
             }
         });
+
+        mHabitView = (TextView) findViewById(R.id.habit_display_view);
 
         // Create a new instance of HabitDbHelper
         mDbHelper = new HabitDbHelper(this);
@@ -66,20 +70,24 @@ public class HabitActivity extends AppCompatActivity {
         };
 
         // Cast the TextView where data will be displayed
-        TextView habitView = (TextView) findViewById(R.id.habit_display_view);
+        mHabitView = (TextView) findViewById(R.id.habit_display_view);
 
         // Create a cursor object
         Cursor cursor = db.query(HabitEntry.TABLE_NAME, projection, null, null, null, null, null);
 
+        readFromCursor(cursor);
+    }
+
+    private void readFromCursor(Cursor cursor) {
         try {
             // Set the header text here
-            habitView.setText("There are " + cursor.getCount() + " logged sessions \n\n");
+            mHabitView.setText("There are " + cursor.getCount() + " logged sessions \n\n");
 
             // Append the column headers to the display
-            habitView.append(HabitEntry._ID + " - " +
-                        HabitEntry.DAY_OF_WEEK + " - " +
-                        HabitEntry.TYPE_OF_EXERCISE + " - " +
-                        HabitEntry.TIME_IN_MINUTES + " - " + "\n");
+            mHabitView.append(HabitEntry._ID + " - " +
+                    HabitEntry.DAY_OF_WEEK + " - " +
+                    HabitEntry.TYPE_OF_EXERCISE + " - " +
+                    HabitEntry.TIME_IN_MINUTES + " - " + "\n");
 
             // Get the row index
             int idColumnIndex = cursor.getColumnIndex(HabitEntry._ID);
@@ -87,7 +95,7 @@ public class HabitActivity extends AppCompatActivity {
             int exerciseColumnIndex = cursor.getColumnIndex(HabitEntry.TYPE_OF_EXERCISE);
             int timeColumnIndex = cursor.getColumnIndex(HabitEntry.TIME_IN_MINUTES);
 
-            // Iterate through the curosr
+            // Iterate through the cursor
             while (cursor.moveToNext()) {
                 // Extract the appropriate data
                 int currentID = cursor.getInt(idColumnIndex);
@@ -96,7 +104,7 @@ public class HabitActivity extends AppCompatActivity {
                 int currentTime = cursor.getInt(timeColumnIndex);
 
                 // Display the info in the TextView
-                habitView.append("\n" + currentID + " - " +
+                mHabitView.append("\n" + currentID + " - " +
                         currentDay + " - " +
                         currentExercise + " - " +
                         currentTime);
