@@ -33,7 +33,7 @@ public class EditorActivity extends AppCompatActivity {
 
     private Spinner mExerciseSpinner;
 
-    private int mDayofWeek = 0;
+    private int mDayOfWeek = 0;
 
     private int mTypeOfExercise = 0;
 
@@ -65,6 +65,9 @@ public class EditorActivity extends AppCompatActivity {
         // Specify dropdown layout style - 1 item per line
         daySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
+        // Apply the adapter to the spinner
+        mDayOfWeekSpinner.setAdapter(daySpinnerAdapter);
+
         // Set the integer to the constant values
         mDayOfWeekSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -72,19 +75,19 @@ public class EditorActivity extends AppCompatActivity {
                 String selection = (String) parent.getItemAtPosition(position);
                 if (!TextUtils.isEmpty(selection)) {
                     if (selection.equals(getString(R.string.sunday))) {
-                        mDayofWeek = HabitEntry.SUNDAY; // Sunday
+                        mDayOfWeek = HabitEntry.SUNDAY; // Sunday
                     } else if (selection.equals(getString(R.string.monday))) {
-                        mDayofWeek = HabitEntry.MONDAY; // Monday
+                        mDayOfWeek = HabitEntry.MONDAY; // Monday
                     } else if (selection.equals(getString(R.string.tuesday))) {
-                        mDayofWeek = HabitEntry.TUESDAY; // Tuesday
+                        mDayOfWeek = HabitEntry.TUESDAY; // Tuesday
                     } else if (selection.equals(getString(R.string.wednesday))) {
-                        mDayofWeek = HabitEntry.WEDNESDAY; // Wednesday
+                        mDayOfWeek = HabitEntry.WEDNESDAY; // Wednesday
                     } else if (selection.equals(getString(R.string.thursday))) {
-                        mDayofWeek = HabitEntry.THURSDAY; // Thursday
+                        mDayOfWeek = HabitEntry.THURSDAY; // Thursday
                     } else if (selection.equals(getString(R.string.friday))) {
-                        mDayofWeek = HabitEntry.FRIDAY; // Friday
+                        mDayOfWeek = HabitEntry.FRIDAY; // Friday
                     } else {
-                        mDayofWeek = HabitEntry.SATURDAY; // Saturday
+                        mDayOfWeek = HabitEntry.SATURDAY; // Saturday
                     }
                 }
             }
@@ -92,7 +95,7 @@ public class EditorActivity extends AppCompatActivity {
             // Must define onNothingSelected
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                mDayofWeek = 0; // Nothing selected
+                mDayOfWeek = 0; // Nothing selected
             }
         });
     }
@@ -106,8 +109,11 @@ public class EditorActivity extends AppCompatActivity {
         // Specify dropdown layout style - 1 item per line
         exerciseSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
+        // Apply the adapter
+        mExerciseSpinner.setAdapter(exerciseSpinnerAdapter);
+
         // Set the integer to the constant values
-        mDayOfWeekSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mExerciseSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = (String) parent.getItemAtPosition(position);
@@ -148,7 +154,7 @@ public class EditorActivity extends AppCompatActivity {
 
         // Associate values with specific table fields
         ContentValues values = new ContentValues();
-        values.put(HabitEntry.DAY_OF_WEEK, mDayofWeek);
+        values.put(HabitEntry.DAY_OF_WEEK, mDayOfWeek);
         values.put(HabitEntry.TYPE_OF_EXERCISE, mTypeOfExercise);
         values.put(HabitEntry.TIME_IN_MINUTES, timeInt);
 
