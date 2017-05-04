@@ -37,6 +37,9 @@ public class HabitDbHelper extends SQLiteOpenHelper {
                 + HabitEntry.TYPE_OF_EXERCISE + " INTEGER NOT NULL, "
                 + HabitEntry.TIME_IN_MINUTES + " INTEGER NOT NULL DEFAULT 0);";
         Log.v(LOG_TAG, SQL_CREATE_HABIT_TABLE);
+
+        // Execute the sql statement
+        db.execSQL(SQL_CREATE_HABIT_TABLE);
     }
 
     @Override

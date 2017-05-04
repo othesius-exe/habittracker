@@ -5,6 +5,7 @@
     <string name="placeholder_text">Habit table will be displayed here.</string>
 
     <!-- Strings for activity_editor.xml -->
+    <string name="label">Add an Exercise</string>
     <string name="sunday">Sunday</string>
     <string name="monday">Monday</string>
     <string name="tuesday">Tuesday</string>

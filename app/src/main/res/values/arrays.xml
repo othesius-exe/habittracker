@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Options for the Day of Week Spinner -->
+    <string-array name="array_day_options">
+        <item>@string/sunday</item>
+        <item>@string/monday</item>
+        <item>@string/tuesday</item>
+        <item>@string/wednesday</item>
+        <item>@string/thursday</item>
+        <item>@string/friday</item>
+        <item>@string/saturday</item>
+    </string-array>
+
+    <string-array name="array_exercise_options">
+        <item>@string/bike</item>
+        <item>@string/run</item>
+        <item>@string/swim</item>
+        <item>@string/yoga</item>
+        <item>@string/weights</item>
+        <item>@string/bodyweight</item>
+    </string-array>
+</resources>
